@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 
 
-class estudiante(BaseModel):
+class Estudiante(BaseModel):
     id: int | None = None
     nombre: str
     apellido: str
