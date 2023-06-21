@@ -14,6 +14,10 @@ estudiantes=[
 
 ]
 
+@app.get('/estudiantes',tags=['CRUD'])
+def listar_estudiantes():
+    return JSONResponse(status_code=200, content=estudiantes)
+
 @app.post('/estudiantes',tags=['CRUD'])
 def agregar_estudiante(estudiante : Estudiante):
     estudiantes.append(estudiante)

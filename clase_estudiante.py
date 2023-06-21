@@ -11,7 +11,7 @@ class Estudiante(BaseModel):
 
     class Config:
         schema_extra={
-            'ejemplo':{
+            'example':{
                 'id':1000888999,
                 'nombre': 'Pepito',
                 'apellido': 'Perez',
