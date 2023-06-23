@@ -11,7 +11,14 @@ app.version = '0.0.1'
 
 
 estudiantes=[
-
+    {
+        'id':10005898,
+        'nombre': 'Isabella',
+        'apellido': 'Guerra',
+        'direccion': 'luna del campo',
+        'carrera': 'Medicina',
+        'semestre': 1
+    }
 ]
 
 @app.get('/estudiantes',tags=['CRUD'])
@@ -21,4 +28,4 @@ def listar_estudiantes():
 @app.post('/estudiantes',tags=['CRUD'])
 def agregar_estudiante(estudiante : Estudiante):
     estudiantes.append(estudiante)
-    return JSONResponse(content={'message':'Se registro el estudiante'})
+    return JSONResponse(content=estudiantes)
