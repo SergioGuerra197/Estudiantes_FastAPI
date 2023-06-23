@@ -29,6 +29,10 @@ estudiantes=[
     }
 ]
 
+@app.get('/', tags=['HOME'])
+def home():
+    return HTMLResponse('<h1>Hola mundo</H1>')
+
 @app.get('/estudiantes',tags=['CRUD'])
 def listar_estudiantes():
     return JSONResponse(status_code=200, content=estudiantes)
