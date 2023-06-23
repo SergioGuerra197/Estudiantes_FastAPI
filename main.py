@@ -37,7 +37,7 @@ def home():
 def listar_estudiantes():
     return JSONResponse(status_code=200, content=estudiantes)
 
-@app.get('/estudiantes/{id}',tags=['CRUD'])
+@app.get('/estudiantes/{id}',tags=['CRUD'], response_model=List[Estudiante])
 def listar_estudiante_id(id: int):
     for item in estudiantes:
         if item['id'] == id:
