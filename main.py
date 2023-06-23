@@ -12,7 +12,7 @@ app.version = '0.0.1'
 
 estudiantes=[
     {
-        'id':10005898,
+        'id':123456789,
         'nombre': 'Isabella',
         'apellido': 'Guerra',
         'direccion': 'luna del campo',
@@ -29,3 +29,15 @@ def listar_estudiantes():
 def agregar_estudiante(estudiante : Estudiante):
     estudiantes.append(estudiante)
     return JSONResponse(content=estudiantes)
+
+@app.put('/estudiantes/{id}',tags=['CRUD'])
+def actualizar_estudiante(id: int, estudiante: Estudiante):
+    for item in estudiantes:
+        if item['id'] == id:
+            item['nombre'] = estudiante.nombre
+            item['apellido'] = estudiante.apellido
+            item['direccion'] = estudiante.direccion
+            item['carrera'] = estudiante.carrera
+            item['semestre'] = estudiante.semestre
+            return JSONResponse(content={'message':'Se actualizó el estudiante'})
+
