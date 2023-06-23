@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, JSONResponse
 from clase_estudiante import *
 from pydantic import Field
-from typing import Optional, List
+from typing import List
 
 
 app = FastAPI()
