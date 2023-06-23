@@ -18,12 +18,27 @@ estudiantes=[
         'direccion': 'luna del campo',
         'carrera': 'Medicina',
         'semestre': 1
+    },
+     {
+        'id':1122334455,
+        'nombre': 'Jorge',
+        'apellido': 'Lopez',
+        'direccion': 'Medellin',
+        'carrera': 'Operaciones',
+        'semestre': 6
     }
 ]
 
 @app.get('/estudiantes',tags=['CRUD'])
 def listar_estudiantes():
     return JSONResponse(status_code=200, content=estudiantes)
+
+@app.get('/estudiantes/{id}',tags=['CRUD'])
+def listar_estudiante_id(id: int):
+    for item in estudiantes:
+        if item['id'] == id:
+            return JSONResponse(content=item)
+    return JSONResponse(content={'messaje':'No se encontro el estudiante'})
 
 @app.post('/estudiantes',tags=['CRUD'])
 def agregar_estudiante(estudiante : Estudiante):
