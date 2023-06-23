@@ -41,3 +41,9 @@ def actualizar_estudiante(id: int, estudiante: Estudiante):
             item['semestre'] = estudiante.semestre
             return JSONResponse(content={'message':'Se actualizó el estudiante'})
 
+@app.delete('/estudiantes/{id}', tags=['CRUD'])
+def eliminar_estudiante(id: int):
+    for item in estudiantes:
+        if item['id'] == id:
+            estudiantes.remove(item)
+            return JSONResponse(content = {'message':'Se elimino el estudiante'})
